@@ -120,7 +120,11 @@ export default function WorkspaceMessagesScreen({ navigation }) {
   return (
     <TouchableWithoutFeedback accessible={false}>
       <SafeAreaView style={styles.chatscreen}>
-        <View>
+        <View
+        style={{
+          marginHorizontal : 10
+        }}
+        >
           <Text
             style={{
               textAlign: 'center',
@@ -146,7 +150,7 @@ export default function WorkspaceMessagesScreen({ navigation }) {
             {/* <Text style={{ fontWeight: "600" }}>Manage work hours</Text> */}
           </Text>
         </View>
-        <View style={{ marginTop: 13 }}>
+        <View style={{ marginTop: 13, marginHorizontal:10 }}>
           <KeyboardAvoidingView>
             <TextField
               onFocus={() => {
@@ -192,7 +196,7 @@ export default function WorkspaceMessagesScreen({ navigation }) {
         <View
           style={[
             styles.chatlistContainer,
-            { display: 'flex' },
+            { display: 'flex', marginHorizontal: 10, },
           ]}>
           {Array.isArray(rooms) && rooms.length > 0 ? (
             <FlatList

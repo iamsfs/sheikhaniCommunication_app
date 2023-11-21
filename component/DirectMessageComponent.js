@@ -34,14 +34,14 @@ export default function DirectMessageComponent({
       await axios
         .get(`http://52.9.129.21:3001/user?id=${item.senderid}`)
         .then(async result => {
-          console.log('image ->', result.data.user.profilePicture[0]);
+          // console.log('image ->', result.data.user.profilePicture[0]);
           await axios
             .get(
               `http://52.9.129.21:3001/files/${result.data.user.profilePicture[0]}/true`,
             )
             .then(image => {
               setImage(
-                `data:${image.headers['content-type']};base64,${image.data}`,
+                `data:${image.headers['content-type'].split(";")[0]};base64,${image.data}`,
               );
             });
         })
@@ -59,7 +59,7 @@ export default function DirectMessageComponent({
           .get(`http://52.9.129.21:3001/files/${item.message}/true`)
           .then(result => {
             setMediaImage(
-              `data:${result.headers['content-type']};base64,${result.data}`,
+              `data:${result.headers['content-type'].split(";")[0]};base64,${result.data}`,
             );
           });
       }

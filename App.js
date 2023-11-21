@@ -59,6 +59,7 @@ function MyTabBar({ state, descriptors, navigation }) {
         height: 70,
         alignItems: 'center',
         justifyContent: 'space-evenly',
+        marginBottom: 25
       }}>
       {state.routes.map((route, index) => {
         const { options } = descriptors[route.key];
